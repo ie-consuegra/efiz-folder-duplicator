@@ -1,0 +1,28 @@
+{
+  "name": "efiz-copy-folder-drive",
+  "version": "0.0.1",
+  "description": "Copy folders and its contents from one folder to another in Google Drive",
+  "source": "src/client/index.html",
+  "targets": {
+    "default": {
+      "distDir": "./dist"
+    }
+  },
+  "scripts": {
+    "client": "cd client && npm run build",
+    "server": "cd server && npm run build",
+    "build": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy": "npm run build && clasp push -f",
+    "push-client": "npm run client && clasp push -f",
+    "push-server": "npm run server && clasp push -f"
+  },
+  "author": "Ivan Consuegra",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "tailwindcss": "^4.2.4"
+  }
+}
