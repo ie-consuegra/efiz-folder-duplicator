@@ -2,11 +2,11 @@ function strings(key, locale) {
   // Simple dictionary
   const translations = {
     addonName: {
-      en: 'Efiz App',
-      es: 'Efiz App',
-      pt: 'Efiz App',
-      fr: 'Efiz App',
-      it: 'Efiz App',
+      en: 'Efiz Folder Duplicator',
+      es: 'Efiz Duplicador de Carpetas',
+      pt: 'Efiz Duplicador de Pastas',
+      fr: 'Efiz Duplicateur de Dossiers',
+      it: 'Efiz Duplicatore di Cartelle',
     },
     showSidebar: {
       en: 'Show Sidebar',
