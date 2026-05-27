@@ -1,4 +1,8 @@
-# Efiz Copy Folder Drive
+# Efiz Folder Duplicator
+
+## Get Efiz Folder Duplicator here
+
+If you are interested in using the tool, not the code, get it [here](https://docs.google.com/spreadsheets/d/1KagDKat8HL90y_m8WtndVKVbLcjmrABESNxp5amFKf8/edit?usp=sharing) and make a copy for yourself.
 
 ## Prerequisites
 
