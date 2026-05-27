@@ -54,26 +54,37 @@ const FolderRow = ({
     onClick: () => void;
     onDoubleClick?: () => void;
     trailing?: React.ReactNode;
-}) => (
-    <button
-        type="button"
-        onClick={onClick}
-        onDoubleClick={onDoubleClick}
-        className={cn(
-            "flex w-full items-center gap-3 rounded-xl border bg-card px-4 py-3 text-left transition-colors hover:bg-accent",
-            selected && "border-primary bg-primary/5 hover:bg-primary/5"
-        )}
-    >
-        <div className={cn("flex h-9 w-9 items-center justify-center rounded-lg bg-muted", selected && "bg-primary/15")}>
-            <Folder className={cn("h-5 w-5 text-muted-foreground", selected && "text-primary")} />
-        </div>
-        <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium">{folder.name}</p>
-            <p className="truncate text-xs text-muted-foreground">Modified {folder.modified}</p>
-        </div>
-        {selected ? <Check className="h-5 w-5 text-primary" /> : trailing}
-    </button>
-);
+}) => {
+    const formattedDate = (() => {
+        try {
+            const date = new Date(folder.modified);
+            return isNaN(date.getTime()) ? folder.modified : date.toLocaleString();
+        } catch {
+            return folder.modified;
+        }
+    })();
+
+    return (
+        <button
+            type="button"
+            onClick={onClick}
+            onDoubleClick={onDoubleClick}
+            className={cn(
+                "flex w-full items-center gap-3 rounded-xl border bg-card px-4 py-3 text-left transition-colors hover:bg-accent",
+                selected && "border-primary bg-primary/5 hover:bg-primary/5"
+            )}
+        >
+            <div className={cn("flex h-9 w-9 items-center justify-center rounded-lg bg-muted", selected && "bg-primary/15")}>
+                <Folder className={cn("h-5 w-5 text-muted-foreground", selected && "text-primary")} />
+            </div>
+            <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-medium">{folder.name}</p>
+                <p className="truncate text-xs text-muted-foreground">Modified {formattedDate}</p>
+            </div>
+            {selected ? <Check className="h-5 w-5 text-primary" /> : trailing}
+        </button>
+    );
+};
 
 const Index = () => {
     const queryClient = useQueryClient();
