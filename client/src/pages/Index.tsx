@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArrowLeft, ArrowRight, ChevronRight, Folder, FolderPlus, Home, Play, RotateCcw, Check } from "lucide-react";
+import { EfizIcon } from "@/assets/EfizIcon";
 import { cn } from "@/lib/utils";
 
 type DriveFolder = { id: string; name: string; modified: string; children?: DriveFolder[] };
@@ -23,10 +24,25 @@ const TopBar = ({ step }: { step: number }) => (
     <header className="border-b bg-card">
         <div className="mx-auto flex max-w-75 items-center justify-between px-5 py-4">
             <div className="flex items-center gap-2">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
-                    <Folder className="h-5 w-5 text-primary" />
+                <a
+                    href="https://ivanconsuegra.com/efiz?utm_campaign=folder-duplicator&utm_source=extension&utm_medium=header"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center hover:opacity-80 transition-opacity"
+                >
+                    <EfizIcon className="h-9 w-9" />
+                </a>
+                <div className="flex flex-col justify-between py-0.5 h-9">
+                    <h1 className="text-sm font-medium tracking-tight leading-none">Folder Duplicator</h1>
+                    <a
+                        href="https://ko-fi.com/ivanconsuegra"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-muted-foreground hover:text-primary transition-colors leading-none"
+                    >
+                        Show your support
+                    </a>
                 </div>
-                <h1 className="text-base font-medium tracking-tight">Efiz Folder Duplicator</h1>
             </div>
             <span className="text-sm text-muted-foreground">{step} / 3</span>
         </div>
